@@ -1,0 +1,5 @@
+1.adb发送广播
+  (1)开机广播 adb shell am broadcast -a android.intent.action.BOOT_COMPLETED
+  (2)安装apk  adb install C:\Users\hyh\Desktop\XXX.apk (一个路径下的apk文件)
+  (3)传递数据到手机  adb push
+  (4)从手机复制数据到电脑 adb pull
