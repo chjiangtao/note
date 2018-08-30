@@ -1,0 +1,11 @@
+
+1.Cursor
+最近项目中用到很多查询数据的地方，都用到了Cursor，但是对Cursor的moveToFirst和moveToNext用法却有些疑惑，总感觉可以先用moveToFirsrt来判断查询结果是否为空，然后再用moveToNext的while循环来逐条读取数据，我也不知道最初我这种想法从何而来，
+
+似乎是这样想的，当用ContentProvider查询得到一个cursor的时候，cursor应该是处于指向第一条记录的位置，因此调不调用moveToFirst都是一样的。可是后来写着写着就觉得矛盾了，如果真的是得到的cursor就指向第一条，那么不调用moveToFirst，直接使用while(moveToNext())的循环岂不是把第一条给跳过去了？
+
+越想越糊涂，还是直接看代码，又写了个例子debug了一下，原来查询得到的cursor是指向第一条记录之前的，因此查询得到cursor后第一次调用moveToFirst或moveToNext都可以将cursor移动到第一条记录上。
+
+源码中这些moveXXX其实都是通过moveToPosition来实现的，而记录position的是一个整型变量mPos。当moveXXXX返回false的时候，mPos会被置为-1，也就是回到了初始状态，指向第一条记录之前。
+
+这里记录一下自己犯下的这个错误。

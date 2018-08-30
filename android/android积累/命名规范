@@ -1,0 +1,3 @@
+1.是Actiivty的，以Activity结尾，是Fragment的，以Fragment结尾，
+布局文件是Activity的布局，以activity开头，layout结尾，中间为具体的业务名称
+Fragment的布局与Activity一样，以fragment开头，以layout结尾，中间是具体业务的名称
