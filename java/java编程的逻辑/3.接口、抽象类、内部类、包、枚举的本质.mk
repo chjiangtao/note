@@ -153,3 +153,85 @@ Outer.StaticInner si=new Outer.StaticInner();
 si.方法();
 ```
 #### 成员内部类
+- 没有static修饰符
+```
+public class Outer{
+    private int a=100;
+
+    public class Inner{
+        public void innerMethod(){
+            //直接访问外部类的实例
+            print(a);
+            Outer.this.action();//在重名情况下通过Outer.this.XXX引用
+        }
+    }
+    private void action(){
+
+    }
+    public void test(){
+        Inner inner=new Inner();
+        inner.innerMethod();
+    }
+}
+```
+-成员内部类可以访问静态变量和方法，还可以访问实例变量和方法。
+#### 在其他地方使用
+```
+//创建内部类对象
+Outer outer=new Outer();
+Outer.Inner inner=outer.new Inner();
+inner.innerMethod();
+```
+- ***成员、方法和匿名内部类都不能定义静态变量和方法(final 变量除外，它等同于常量)***
+#### 方法内部类
+```
+public class Outer{
+    private int a=100;
+
+    public void test(final int param){
+        final String str="hello";
+        //方法内部类只能在定义的方法内部使用
+        class Inner{
+            public void innerMethod(){
+                print(a,param,str);
+            }
+        }
+        Inner inner=new Inner();
+        inner.innerMethod();
+    }
+}
+```
+- 如果方法是实例方法，则除了静态变量和方法，内部类还可以直接访问外部类的实例变量和方法，如果是方法是静态的，则方法内部类只能访问外部类的静态变量和方法。
+- 还可以直接访问方法中声明为final的参数和局部变量，对于这些变量的赋值，并不能改变外部的值。
+- 如果需要修改外部的变量，可以将变量改为只含该变量的数组。
+
+#### 匿名内部类
+```
+new 父类(参数列表){
+//匿名内部类实现部分
+}
+new 父接口(){
+    //实现部分
+}
+//具体实例
+public class Outer{
+    public void test(final int x,final int y){
+      Point p=new Ponit(2,3){
+          public double distance(){
+              return distance(new Point(x,y));
+          }
+      }
+      print(p.distance());
+    }
+}
+```
+- 匿名内部类只能被使用一次，用来创建对象，没有名字，没有构造方法。但可以根据参数列表，调用对应的父类构造方法。可以定义实例变量和方法，可以有初始化代码块。
+>初始化代码块只能有一个。
+- ***可以访问外部类的所有变量和方法，可以访问方法中的final参数和局部变量***
+## 包
+- Java API中所有的类和接口都位于包java或javax下，java是标准包，javax是扩展包。
+- 如果不写可见性修饰符，就是在同一个包(指直接包，子包里不可见)里可见。
+- private < 默认 < protected < public
+## 枚举的本质
+### 基本用法
+- enum来定义枚举
