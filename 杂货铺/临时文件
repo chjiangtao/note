@@ -1,0 +1,91 @@
+1.adb查看当前显示的Activity
+    （1）链接Adb： adb shell
+    （2）dumpsys activity | grep mFocusedActivity 
+2.查看当前显示的Fragment：
+equalsignorecase()不区分大小写的比较
+Class.forName()
+for(;;)死循环
+velocitytracker 平滑移动
+ACTION_POINTER_DOWN 多点触摸事件
+Matrix
+图书翻页效果
+DisplayMetircs 获取屏幕分辨率
+
+intent和IntentFilter的区别
+PackageManager 包管理
+instanceof
+View.setActivited()
+DEBUG用法
+ApplicationInfo
+synchronized
+WeakReference Java引用
+kotlin
+Space
+RxJava
+WifiManager
+volatile
+RandomAccessFile
+
+performClick()
+华为终端开放实验室云测平台
+ListView.getChildCount()
+多线程下载
+文件操作
+
+Region
+Android 颜色渲染(六) RadialGradient 环形渲染
+Effective Java 中文版
+clean code
+StringBuffer ——转换——int
+StringBuffer.delete() .deleteCharAt()
+ Git账号 ：chenjiangtao  cjt2018
+DisplayMetrics
+
+Installation error: INSTALL_FAILED_SHARED_USER_INCOMPATIBLE   sharedUserId
+
+ViewFlipper
+
+ImageView setSelected()
+
+
+android 自动化测试工具
+
+
+平板电脑的宽高是横屏还是竖屏的时候的值
+
+Android Bitmap.setDensity(int density)
+android-sdk→tools→uiautomatorviewer.bat 
+android:layerType="software"
+
+Bitmap.createBItmap()  获取宽 getWidth()的单位是什么
+
+Android Asset Studio
+
+Snipaste 
+
+TextView.BufferType.SPANNABLE
+
+Android Studio Prettify
+
+Codota
+
+RadioGroup要设置RadioButton不能点击的，要对每一个RadioButton都设置
+RadioGroup+ViewPager
+
+List的浅拷贝和深拷贝
+
+自定义控件的构造方法的调用
+
+cd切换目录
+
+查看当前CMD窗口的编码 CHCP  设置UTF-8 chcp 65001   设置汉字编码 936
+adb查看Shared_perfs文件夹
+adb shell      run-as+包名   cd shared_prefs  ls(查看所有的文件)  cat+xml文件  查看特定的xml文件
+
+Android序列化
+
+在自定义View时，构造方法先于onSizeChanged()执行。
+
+android api demos
+
+Android Socket编程

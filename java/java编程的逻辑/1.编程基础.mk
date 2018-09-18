@@ -1,8 +1,8 @@
-1.java 两个字节表示一个字符
-2.数组的赋值方式
-   (1) int[] arr={1,2,3};
-   (2) int[] arr=new int[]{1,2,3};
-   (3) int[] arr=new int[3];
+1. java 两个字节表示一个字符
+2. 数组的赋值方式
+   - int[] arr={1,2,3};
+   - int[] arr=new int[]{1,2,3};
+   - int[] arr=new int[3];
         arr[0]=1;
         arr[1]=2;
         arr[2]=3;
@@ -11,39 +11,43 @@
    boolean false
    char  null
    
-   (4)数组长度可以动态确定
+   - 数组长度可以动态确定
        int length=5;
        int[] arr=new int[length];
     *数组有一个Length属性，但只能读不能改
 
-3.++/--
-   (1) a++ 先操作在修改自己的值
-   (2) ++a 先修改在操作自己的值
-4.编码
-   (1)java 中处理字符串的类String
-   (2)public byte[] getBytes(String charsetName) 获取一个字符串给定编码格式下的二进制形式
-   (3)public String(byte byte[],String charsetName) 将二进制数组bytes按照charsetName编码格式解析
+3. ++/--
+   - a++ 先操作在修改自己的值
+   - ++a 先修改在操作自己的值
+4. 编码
+   - java 中处理字符串的类String
+   - public byte[] getBytes(String charsetName) 获取一个字符串给定编码格式下的二进制形式
+   - public String(byte byte[],String charsetName) 将二进制数组bytes按照charsetName编码格式解析
    
-   *将A看成BG18030 将B看成Window-1252
-   * String str="  ";
-   *String newStr=new String(str.getBytes("windows-1252"),"GB18030");
-5.char的本质
-   (1)char本质上是一个固定占用两个字节的无符号正整数，这个正整数对应Unicode编码，由于固定占
+   - 将A看成BG18030 将B看成Window-1252
+   - String str="  ";
+   - String newStr=new String(str.getBytes("windows-1252"),"GB18030");
+5. char的本质
+   - char本质上是一个固定占用两个字节的无符号正整数，这个正整数对应Unicode编码，由于固定占
     两个字节，char只能表示Unicode编号在65536以内的字符。
-6.条件执行
-    (1)if/if else/else 判断有顺序，只有在前面的为false后才去判断后面的。
-7.switch的值只能是byte short int char 枚举和String
-8.死循环
-    (1)for(;;)
-    (2)while(true){}
-9.break 跳出循环，执行后面的语句
-10.continue 结束本次循环，进行下一次的循环
-11.在嵌套循环中，break和continue只对本层循环有用
-12.整数的二进制表示 Integer.toBinaryString(value)
-13.可变长度的参数  int...  a   
-    获取值 for(int i=0;i<a.length;i++){
-              a[i]
-           }
+6. 条件执行
+    - if/if else/else 判断有顺序，只有在前面的为false后才去判断后面的。
+7. switch的值只能是byte short int char 枚举和String
+8. 死循环
+    - for(;;)
+    - while(true){}
+9. break 跳出循环，执行后面的语句
+10. continue 结束本次循环，进行下一次的循环
+11. 在嵌套循环中，break和continue只对本层循环有用
+12. 整数的二进制表示 Integer.toBinaryString(value)
+13. 可变长度的参数  int...  a   
+    ```
+    //获取值
+    for(int i=0;i<a.length;i++){
+        a[i]
+    }
+    ```
+     
     方法 public static int max(int... a){
 
          }
