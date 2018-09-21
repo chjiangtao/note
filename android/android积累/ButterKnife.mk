@@ -87,7 +87,7 @@ public class MyAdapter extends BaseAdapter{
         buttonList.get(2).setText("");
     }
  ```
-###2. 绑定资源
+### 2. 绑定资源
 
 - 绑定String字符串 @BindString()
 

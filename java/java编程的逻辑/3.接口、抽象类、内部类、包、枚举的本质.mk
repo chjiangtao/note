@@ -3,14 +3,14 @@
 ### 接口的概念
  - 接口声明一组能力，但自己不会去实现这些能力。涉及交互双方对象，一方需要实现这个接口，一方使用这个接口，但双方对象并不直接相互依赖，只是通过接口间接交互。
  ### 定义接口
- ```
+ ```java
  public interface MyComparable{
      int compareTo(Object other);
  }
 
  ```
  ### 实现接口
- ```
+ ```java
  public class Point implements MyComparable{
      private int x;
      private int y;
@@ -235,3 +235,33 @@ public class Outer{
 ## 枚举的本质
 ### 基本用法
 - enum来定义枚举
+- 枚举变量的toString和name()都返回变量的名字
+```java
+   public enum Size{
+       SMALL,MEDIUM,LARGE
+   }
+   Size size=Size.SMALL;
+   print(size.toString()/size.name());//输出的都是SMALL
+```
+- 可以用equals和==来比较
+- 枚举可以用于switch
+```java 
+  public static void onChosen(Size size){
+      switch(size){
+          case SMALL:
+              break;
+          case MEDIUM:
+              break;
+      }
+  }
+```
+- 枚举类型都有一个静态的valueOf(),返回字符串对应的枚举值。
+```java
+   Size.SMALL==Size.valueOf("SMALL");  //=true
+```
+- 静态的values(),返回一个包括所有枚举值的数组，声明时的顺序。
+```java
+  for(Size size:Size.values){
+      print(size);
+  }
+```
