@@ -1,4 +1,66 @@
 # 异常
 ### 异常类
 - Throwable所有异常类的父类。
+```java
+   //Throwable构造方法
+   //message 表示异常消息
+   //cause 触发该异常的其他异常，表示底层异常
+   public Throwable()
+   public Throwable(String message)
+   public Throwable(String message,Throwable cause)
+   public Throwable(Throwable cause)
+```
 - 异常可以形成一个异常链，上层的异常由底层的异常触发。
+
+```java 
+//捕获异常
+   try{
+
+   }catch(){
+
+   }
+```
+- 捕获异常后，程序不会退出，try语句内异常点之后的其他代码就不会执行了，执行完catch内的语句后，程序会继续执行catch大括号外的代码。
+```java
+//设置cause，如果Throwable的一些
+//子类没有带cause参数的构造方法，可以用这个方法
+public initCause(Throwable cause)
+```
+- Throwable的子类Error和Exception。Error表示系统错误或资源耗尽，由java系统调用，比如内存溢出错误(outOfMemoryError)和栈溢出错误(StackOverflowError).
+- Exception表示程序错误。可以通过继承Exception或其子类创建自定义异常。输入输出异常(IOException),数据库SQL异常(SQLException),运行时异常(RuntimeException).
+
+- RuntimeException是指unchecked exception(未受检异常),Exception和其它子类的都是checked exception(受检异常)
+- checked exception必须处理，否则会编译错误。
+```java
+    //RuntimeException的子类
+    NullPointerException //空指针异常
+    IllegalStateException //非法状态
+    ClassCastException //非法强制类型转换
+    IllegalArgumentException //参数错误
+    NumberFormatException //数字格式错误
+    IndexOutOfBoundsException //索引越界
+    ArrayIndexOutOfBoundsException //数组索引越界
+    StringIndexOutOfBoundsException //字符串索引越界
+```
+- 如果父类是RuntimeException或其子类，则自定义的Exception也是unchecked exception,如果是Exception或其子类，则自定义的Exception是checked exception.
+```java 
+  public class AppException extends Exception{
+    public AppException() {
+        super();
+    }
+
+    public AppException(String message,Throwable cause) {
+        super(message, cause);
+    }
+
+    public AppException(String message) {
+        super(message);
+    }
+
+    public AppException(Throwable cause) {
+        super(cause);
+    }
+  }
+```
+---
+- 异常下
